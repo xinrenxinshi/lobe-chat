@@ -23,10 +23,13 @@ const metadata: Metadata = {
   description,
   icons: {
     apple:
-      'https://registry.npmmirror.com/@lobehub/assets-favicons/latest/files/assets/apple-touch-icon.png',
-    icon: 'https://registry.npmmirror.com/@lobehub/assets-favicons/latest/files/assets/favicon-32x32.png',
+      // 'https://registry.npmmirror.com/@lobehub/assets-favicons/latest/files/assets/apple-touch-icon.png',
+      'https://static.xinrenxinshi.com/official4/favicon.ico',
+    // icon: 'https://registry.npmmirror.com/@lobehub/assets-favicons/latest/files/assets/favicon-32x32.png',
+    icon: 'https://static.xinrenxinshi.com/official4/favicon.ico',
     shortcut:
-      'https://registry.npmmirror.com/@lobehub/assets-favicons/latest/files/assets/favicon.ico',
+      // 'https://registry.npmmirror.com/@lobehub/assets-favicons/latest/files/assets/favicon.ico',
+      'https://static.xinrenxinshi.com/official4/favicon.ico',
   },
   manifest: noManifest ? undefined : '/manifest.json',
   metadataBase: new URL(SITE_URL),

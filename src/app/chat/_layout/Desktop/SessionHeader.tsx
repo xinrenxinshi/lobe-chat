@@ -1,4 +1,4 @@
-import { ActionIcon, Logo } from '@lobehub/ui';
+import { ActionIcon } from '@lobehub/ui';
 import { createStyles } from 'antd-style';
 import { MessageSquarePlus } from 'lucide-react';
 import { memo } from 'react';
@@ -19,6 +19,17 @@ export const useStyles = createStyles(({ css, token }) => ({
     position: sticky;
     top: 0;
   `,
+  xrxsLogo: css`
+    display: inline-block;
+
+    width: 120px;
+    height: 36px;
+
+    background-image: url("https://static.xinrenxinshi.com/official4/logo.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+  `,
 }));
 
 const Header = memo(() => {
@@ -30,7 +41,8 @@ const Header = memo(() => {
     <Flexbox className={styles.top} gap={16} padding={16}>
       <Flexbox distribution={'space-between'} horizontal>
         <Flexbox align={'center'} gap={4} horizontal>
-          <Logo className={styles.logo} size={36} type={'text'} />
+          <span className={styles.xrxsLogo} />
+          {/*<Logo className={styles.logo} size={36} type={'text'}/>*/}
           <SyncStatusTag />
         </Flexbox>
         <ActionIcon
