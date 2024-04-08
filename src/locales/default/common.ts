@@ -11,7 +11,8 @@ export default {
   about: '关于',
   advanceSettings: '高级设置',
 
-  appInitializing: 'LobeChat 启动中，请耐心等待...',
+  // appInitializing: 'LobeChat 启动中，请耐心等待...',
+  appInitializing: '启动中，请耐心等待...',
 
   autoGenerate: '自动补全',
   autoGenerateTooltip: '基于提示词自动补全助手描述',
