@@ -9,6 +9,7 @@ import { DESKTOP_HEADER_ICON_SIZE } from '@/const/layoutTokens';
 import SyncStatusTag from '@/features/SyncStatusInspector';
 import { useSessionStore } from '@/store/session';
 
+import XrxsLogo from '../../../../components/XrxsLogo';
 import SessionSearchBar from '../../features/SessionSearchBar';
 
 export const useStyles = createStyles(({ css, token }) => ({
@@ -25,7 +26,7 @@ export const useStyles = createStyles(({ css, token }) => ({
     width: 120px;
     height: 36px;
 
-    background-image: url("https://static.xinrenxinshi.com/official4/logo.svg");
+    background-image: url('https://static.xinrenxinshi.com/official4/logo.svg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: 100% 100%;
@@ -41,7 +42,8 @@ const Header = memo(() => {
     <Flexbox className={styles.top} gap={16} padding={16}>
       <Flexbox distribution={'space-between'} horizontal>
         <Flexbox align={'center'} gap={4} horizontal>
-          <span className={styles.xrxsLogo} />
+          {/*<span className={styles.xrxsLogo} />*/}
+          <XrxsLogo />
           {/*<Logo className={styles.logo} size={36} type={'text'}/>*/}
           <SyncStatusTag />
         </Flexbox>

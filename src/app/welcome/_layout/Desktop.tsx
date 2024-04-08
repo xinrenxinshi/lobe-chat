@@ -1,11 +1,11 @@
 'use client';
 
-import { Logo } from '@lobehub/ui';
 import { PropsWithChildren, memo } from 'react';
 import { Center, Flexbox } from 'react-layout-kit';
 
 import ClientResponsiveLayout from '@/components/client/ClientResponsiveLayout';
 
+import XrxsLogo from '../../../components/XrxsLogo';
 import { useStyles } from '../features/Banner/style';
 
 const Desktop = memo<PropsWithChildren>(({ children }) => {
@@ -18,7 +18,8 @@ const Desktop = memo<PropsWithChildren>(({ children }) => {
       horizontal
       style={{ position: 'relative' }}
     >
-      <Logo className={styles.logo} size={36} type={'text'} />
+      <XrxsLogo className={styles.logo} />
+      {/*<Logo className={styles.logo} size={36} type={'text'} />*/}
       <Flexbox className={styles.view} flex={1}>
         {children}
       </Flexbox>
