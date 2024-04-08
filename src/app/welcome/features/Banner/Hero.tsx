@@ -1,12 +1,11 @@
-import dynamic from 'next/dynamic';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Flexbox } from 'react-layout-kit';
 
 import { genSize, useStyles } from './style';
 
-const LogoThree = dynamic(() => import('@lobehub/ui/es/LogoThree'));
-const LogoSpline = dynamic(() => import('@lobehub/ui/es/LogoThree/LogoSpline'));
+// const LogoThree = dynamic(() => import('@lobehub/ui/es/LogoThree'));
+// const LogoSpline = dynamic(() => import('@lobehub/ui/es/LogoThree/LogoSpline'));
 
 const Hero = memo<{ mobile?: boolean; width: number }>(({ width, mobile }) => {
   const size: any = {
@@ -33,11 +32,20 @@ const Hero = memo<{ mobile?: boolean; width: number }>(({ width, mobile }) => {
           position: 'relative',
         }}
       >
-        {mobile ? <LogoThree size={size.logo} /> : <LogoSpline height={'100%'} width={'100%'} />}
+        {
+          // mobile ? <LogoThree size={size.logo} /> : <LogoSpline height={'100%'} width={'100%'} />
+        }
+        <img
+          src="https://static.xinrenxinshi.com/official4/6FA9ECF8-9557-4124-B764-FB77992D463D.png"
+          style={{
+            height: '280px',
+            width: '280px',
+          }}
+        />
       </Flexbox>
       <div className={styles.title} style={{ fontSize: size.title }}>
-        <strong style={mobile ? { fontSize: '1.2em' } : {}}>薪人薪事助手</strong>
-        {mobile ? <br /> : ' '}
+        {/*<strong style={mobile ? { fontSize: '1.2em' } : {}}>薪人薪事助手</strong>*/}
+        {/*{mobile ? <br /> : ' '}*/}
         {t('slogan.title')}
       </div>
       <div className={styles.desc} style={{ fontSize: size.desc }}>

@@ -23,6 +23,7 @@ const withPWA = nextPWA({
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  swcMinify: true,
   compress: isProd,
   basePath,
   experimental: {
