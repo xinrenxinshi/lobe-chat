@@ -27,8 +27,8 @@ const Hero = memo<{ mobile?: boolean; width: number }>(({ width, mobile }) => {
       <Flexbox
         style={{
           height: size.logo,
-          marginBottom: size.marginBottom,
-          marginTop: size.marginTop,
+          marginBottom: 20,
+          // marginTop: size.marginTop,
           position: 'relative',
         }}
       >
@@ -38,8 +38,8 @@ const Hero = memo<{ mobile?: boolean; width: number }>(({ width, mobile }) => {
         <img
           src="https://static.xinrenxinshi.com/official4/6FA9ECF8-9557-4124-B764-FB77992D463D.png"
           style={{
-            height: '280px',
-            width: '280px',
+            height: size.logo,
+            width: 'auto',
           }}
         />
       </Flexbox>

@@ -66,6 +66,22 @@ const nextConfig = {
 
     return config;
   },
+  onDemandEntries: {
+    // 每次页面刷新时保持在内存中的页面数量
+    maxInactiveAge: 25 * 1000,
+    // 同时编译的页面数量
+    pagesBufferLength: 2,
+  },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'static.xinrenxinshi.com',
+        port: '',
+        pathname: '/**',
+      },
+    ],
+  },
 };
 
 export default isProd ? withBundleAnalyzer(withPWA(nextConfig)) : nextConfig;

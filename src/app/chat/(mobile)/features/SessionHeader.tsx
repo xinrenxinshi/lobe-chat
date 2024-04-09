@@ -1,4 +1,4 @@
-import { ActionIcon, Avatar, Logo, MobileNavBar } from '@lobehub/ui';
+import { ActionIcon, Avatar, MobileNavBar } from '@lobehub/ui';
 import { createStyles } from 'antd-style';
 import { MessageSquarePlus } from 'lucide-react';
 import { useRouter } from 'next/navigation';
@@ -11,6 +11,8 @@ import { useGlobalStore } from '@/store/global';
 import { commonSelectors } from '@/store/global/selectors';
 import { useSessionStore } from '@/store/session';
 import { mobileHeaderSticky } from '@/styles/mobileHeader';
+
+import XrxsLogo from '../../../../components/XrxsLogo';
 
 export const useStyles = createStyles(({ css, token }) => ({
   logo: css`
@@ -31,9 +33,20 @@ const Header = memo(() => {
       left={
         <Flexbox align={'center'} gap={8} horizontal style={{ marginLeft: 8 }}>
           <div onClick={() => router.push('/settings')}>
-            {avatar ? <Avatar avatar={avatar} size={28} /> : <Logo size={28} />}
+            {avatar ? (
+              <Avatar avatar={avatar} size={28} />
+            ) : (
+              <img
+                src="https://static.xinrenxinshi.com/official4/xrxs-logo.png"
+                style={{
+                  borderRadius: 4,
+                  height: 28,
+                  width: 28,
+                }}
+              />
+            )}
           </div>
-          <Logo type={'text'} />
+          <XrxsLogo />
           <SyncStatusInspector placement={'bottom'} />
         </Flexbox>
       }

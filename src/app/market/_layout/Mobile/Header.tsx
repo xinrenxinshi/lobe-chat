@@ -1,16 +1,17 @@
 'use client';
 
-import { Logo, MobileNavBar } from '@lobehub/ui';
+import { MobileNavBar } from '@lobehub/ui';
 import { memo } from 'react';
 
 import { mobileHeaderSticky } from '@/styles/mobileHeader';
 
+import XrxsLogo from '../../../../components/XrxsLogo';
 import ShareAgentButton from '../../features/ShareAgentButton';
 
 const Header = memo(() => {
   return (
     <MobileNavBar
-      center={<Logo type={'text'} />}
+      center={<XrxsLogo />}
       right={<ShareAgentButton mobile />}
       style={mobileHeaderSticky}
     />
