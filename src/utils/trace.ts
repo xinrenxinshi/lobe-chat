@@ -19,6 +19,6 @@ const createTracePayload = (data: TracePayload) => {
 export const createTraceHeader = (data: TracePayload) => {
   return {
     [LOBE_CHAT_TRACE_HEADER]: createTracePayload(data),
-    // 'X-Xrxs-User': localStorage.getItem('XRXS_USER') || '',
+    'X-Xrxs-User': localStorage.getItem('XRXS_USER') || '',
   };
 };
