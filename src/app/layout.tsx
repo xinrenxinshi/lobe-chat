@@ -11,6 +11,8 @@ import GlobalLayout from '@/layout/GlobalLayout';
 import GlobalProvider from '@/layout/GlobalProvider';
 import { isMobileDevice } from '@/utils/responsive';
 
+import XrxsUserInject from '../layout/GlobalProvider/XrxsUserInject';
+
 const RootLayout = async ({ children }: PropsWithChildren) => {
   const cookieStore = cookies();
 
@@ -20,13 +22,15 @@ const RootLayout = async ({ children }: PropsWithChildren) => {
   return (
     <html dir={direction} lang={lang?.value || DEFAULT_LANG} suppressHydrationWarning>
       <body>
-        <GlobalProvider>
-          <AuthProvider>
-            <GlobalLayout>{children}</GlobalLayout>
-          </AuthProvider>
-        </GlobalProvider>
-        <Analytics />
-        <SpeedInsights />
+        <XrxsUserInject>
+          <GlobalProvider>
+            <AuthProvider>
+              <GlobalLayout>{children}</GlobalLayout>
+            </AuthProvider>
+          </GlobalProvider>
+          <Analytics />
+          <SpeedInsights />
+        </XrxsUserInject>
       </body>
     </html>
   );

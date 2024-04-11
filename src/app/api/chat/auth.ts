@@ -1,4 +1,5 @@
 import { importJWK, jwtVerify } from 'jose';
+import { headers } from 'next/headers';
 
 import { getServerConfig } from '@/config/server';
 import { JWTPayload, JWT_SECRET_KEY, NON_HTTP_PREFIX } from '@/const/auth';
@@ -43,6 +44,14 @@ export const checkAuthMethod = (
   apiKey?: string,
   oauthAuthorized?: boolean,
 ) => {
+  const xrxsUser = headers().get('X-Xrxs-User');
+
+  if (xrxsUser) {
+    const user = JSON.parse(xrxsUser || '{}');
+    if (user && user.employeeId) {
+      return;
+    }
+  }
   const { ACCESS_CODES, ENABLE_OAUTH_SSO } = getServerConfig();
 
   // if OAuth 2 header is provided
