@@ -47,7 +47,7 @@ export const checkAuthMethod = (
   const xrxsUser = headers().get('X-Xrxs-User');
 
   if (xrxsUser) {
-    const user = JSON.parse(xrxsUser || '{}');
+    const user = JSON.parse(decodeURIComponent(xrxsUser) || '{}');
     if (user && user.employeeId) {
       return;
     }
