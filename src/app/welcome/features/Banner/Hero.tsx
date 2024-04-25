@@ -36,7 +36,7 @@ const Hero = memo<{ mobile?: boolean; width: number }>(({ width, mobile }) => {
           // mobile ? <LogoThree size={size.logo} /> : <LogoSpline height={'100%'} width={'100%'} />
         }
         <img
-          src="https://static.xinrenxinshi.com/official4/6FA9ECF8-9557-4124-B764-FB77992D463D.png"
+          src="https://static.xinrenxinshi.com/official4/WechatIMG7.jpg"
           style={{
             height: size.logo,
             width: 'auto',
