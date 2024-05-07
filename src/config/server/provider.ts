@@ -18,7 +18,6 @@ declare global {
       AZURE_API_KEY?: string;
       AZURE_ENDPOINT?: string;
       AZURE_API_VERSION?: string;
-      USE_AZURE_OPENAI?: string;
 
       // ZhiPu Provider
       ENABLED_ZHIPU?: string;
@@ -28,6 +27,7 @@ declare global {
       // Google Provider
       ENABLED_GOOGLE?: string;
       GOOGLE_API_KEY?: string;
+      GOOGLE_PROXY_URL?: string;
 
       // Moonshot Provider
       ENABLED_MOONSHOT?: string;
@@ -42,6 +42,10 @@ declare global {
       ENABLED_ANTHROPIC?: string;
       ANTHROPIC_API_KEY?: string;
       ANTHROPIC_PROXY_URL?: string;
+
+      // Minimax Provider
+      ENABLED_MINIMAX?: string;
+      MINIMAX_API_KEY?: string;
 
       // Mistral Provider
       ENABLED_MISTRAL?: string;
@@ -71,8 +75,8 @@ declare global {
       AWS_SECRET_ACCESS_KEY?: string;
 
       // Ollama Provider;
+      ENABLE_OLLAMA?: string;
       OLLAMA_PROXY_URL?: string;
-
       OLLAMA_MODEL_LIST?: string;
 
       /**
@@ -96,6 +100,8 @@ export const getProviderConfig = () => {
     throw new Error('[Server Config] you are importing a server-only module outside of server');
   }
 
+  const AZURE_API_KEY = process.env.AZURE_API_KEY || '';
+
   const ZHIPU_API_KEY = process.env.ZHIPU_API_KEY || '';
   const AWS_ACCESS_KEY_ID = process.env.AWS_ACCESS_KEY_ID || '';
 
@@ -106,6 +112,8 @@ export const getProviderConfig = () => {
   const PERPLEXITY_API_KEY = process.env.PERPLEXITY_API_KEY || '';
 
   const ANTHROPIC_API_KEY = process.env.ANTHROPIC_API_KEY || '';
+
+  const MINIMAX_API_KEY = process.env.MINIMAX_API_KEY || '';
 
   const MISTRAL_API_KEY = process.env.MISTRAL_API_KEY || '';
 
@@ -149,11 +157,18 @@ export const getProviderConfig = () => {
     OPENAI_MODEL_LIST: process.env.OPENAI_MODEL_LIST || process.env.CUSTOM_MODELS,
     OPENAI_FUNCTION_REGIONS: regions,
 
+    ENABLED_AZURE_OPENAI: !!AZURE_API_KEY,
+    AZURE_API_KEY,
+    AZURE_API_VERSION: process.env.AZURE_API_VERSION,
+    AZURE_ENDPOINT: process.env.AZURE_ENDPOINT,
+    AZURE_MODEL_LIST: process.env.AZURE_MODEL_LIST,
+
     ENABLED_ZHIPU: !!ZHIPU_API_KEY,
     ZHIPU_API_KEY,
 
     ENABLED_GOOGLE: !!GOOGLE_API_KEY,
     GOOGLE_API_KEY,
+    GOOGLE_PROXY_URL: process.env.GOOGLE_PROXY_URL,
 
     ENABLED_PERPLEXITY: !!PERPLEXITY_API_KEY,
     PERPLEXITY_API_KEY,
@@ -161,6 +176,9 @@ export const getProviderConfig = () => {
     ENABLED_ANTHROPIC: !!ANTHROPIC_API_KEY,
     ANTHROPIC_API_KEY,
     ANTHROPIC_PROXY_URL: process.env.ANTHROPIC_PROXY_URL,
+
+    ENABLED_MINIMAX: !!MINIMAX_API_KEY,
+    MINIMAX_API_KEY,
 
     ENABLED_MISTRAL: !!MISTRAL_API_KEY,
     MISTRAL_API_KEY,
@@ -189,12 +207,7 @@ export const getProviderConfig = () => {
     AWS_ACCESS_KEY_ID: AWS_ACCESS_KEY_ID,
     AWS_SECRET_ACCESS_KEY: process.env.AWS_SECRET_ACCESS_KEY || '',
 
-    AZURE_API_KEY: process.env.AZURE_API_KEY,
-    AZURE_API_VERSION: process.env.AZURE_API_VERSION,
-    AZURE_ENDPOINT: process.env.AZURE_ENDPOINT,
-    USE_AZURE_OPENAI: process.env.USE_AZURE_OPENAI === '1',
-
-    ENABLE_OLLAMA: !!process.env.OLLAMA_PROXY_URL,
+    ENABLE_OLLAMA: process.env.ENABLE_OLLAMA as unknown as boolean,
     OLLAMA_PROXY_URL: process.env.OLLAMA_PROXY_URL || '',
     OLLAMA_MODEL_LIST: process.env.OLLAMA_MODEL_LIST || process.env.OLLAMA_CUSTOM_MODELS,
   };
