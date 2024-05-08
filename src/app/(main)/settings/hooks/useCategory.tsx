@@ -1,6 +1,6 @@
 import { Icon } from '@lobehub/ui';
 import { Tag } from 'antd';
-import { Bot, Brain, Cloudy, Info, Mic2, Settings2 } from 'lucide-react';
+import { Bot, Brain, Cloudy, Mic2, Settings2 } from 'lucide-react';
 import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Flexbox } from 'react-layout-kit';
@@ -50,11 +50,11 @@ export const useCategory = ({ mobile }: UseCategoryOptions = {}) => {
           key: SettingsTabs.Agent,
           label: t('tab.agent'),
         },
-        {
-          icon: <Icon icon={Info} size={iconSize} />,
-          key: SettingsTabs.About,
-          label: t('tab.about'),
-        },
+        // {
+        //   icon: <Icon icon={Info} size={iconSize} />,
+        //   key: SettingsTabs.About,
+        //   label: t('tab.about'),
+        // },
       ].filter(Boolean) as MenuProps['items'],
     [t, enableWebrtc, showLLM],
   );

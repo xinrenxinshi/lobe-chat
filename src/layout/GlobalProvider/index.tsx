@@ -19,6 +19,7 @@ import AppTheme from './AppTheme';
 import Locale from './Locale';
 import StoreInitialization from './StoreInitialization';
 import StyleRegistry from './StyleRegistry';
+import XrxsDomainCheck from './XrxsDomainCheck';
 
 let DebugUI: FC = () => null;
 
@@ -53,21 +54,23 @@ const GlobalLayout = async ({ children }: GlobalLayoutProps) => {
   return (
     <StyleRegistry>
       <Locale antdLocale={antdLocale} defaultLang={defaultLang?.value}>
-        <AppTheme
-          defaultAppearance={appearance?.value}
-          defaultNeutralColor={neutralColor?.value as any}
-          defaultPrimaryColor={primaryColor?.value as any}
-        >
-          <StoreInitialization />
-          <ServerConfigStoreProvider
-            featureFlags={serverFeatureFlags}
-            isMobile={isMobile}
-            serverConfig={serverConfig}
+        <XrxsDomainCheck>
+          <AppTheme
+            defaultAppearance={appearance?.value}
+            defaultNeutralColor={neutralColor?.value as any}
+            defaultPrimaryColor={primaryColor?.value as any}
           >
-            {children}
-          </ServerConfigStoreProvider>
-          <DebugUI />
-        </AppTheme>
+            <StoreInitialization />
+            <ServerConfigStoreProvider
+              featureFlags={serverFeatureFlags}
+              isMobile={isMobile}
+              serverConfig={serverConfig}
+            >
+              {children}
+            </ServerConfigStoreProvider>
+            <DebugUI />
+          </AppTheme>
+        </XrxsDomainCheck>
       </Locale>
     </StyleRegistry>
   );

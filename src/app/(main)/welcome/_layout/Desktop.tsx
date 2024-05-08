@@ -1,10 +1,10 @@
-import { GridShowcase, Logo } from '@lobehub/ui';
+import { GridShowcase } from '@lobehub/ui';
 import { PropsWithChildren } from 'react';
 import { Flexbox } from 'react-layout-kit';
 
-import Follow from '@/features/Follow';
+import XrxsLogo from '@/components/XrxsLogo';
 
-const COPYRIGHT = `© ${new Date().getFullYear()} LobeHub, LLC`;
+const COPYRIGHT = `© ${new Date().getFullYear()} XRXS`;
 
 const DesktopLayout = ({ children }: PropsWithChildren) => {
   return (
@@ -16,13 +16,14 @@ const DesktopLayout = ({ children }: PropsWithChildren) => {
       style={{ overflow: 'hidden', position: 'relative' }}
       width={'100%'}
     >
-      <Logo size={36} style={{ alignSelf: 'flex-start' }} type={'text'} />
+      <XrxsLogo style={{ alignSelf: 'flex-start' }} />
+      {/* <Logo size={36} style={{ alignSelf: 'flex-start' }} type={'text'} /> */}
       <GridShowcase innerProps={{ gap: 24 }} style={{ maxWidth: 1024 }} width={'100%'}>
         {children}
       </GridShowcase>
       <Flexbox align={'center'} horizontal justify={'space-between'}>
         <span style={{ opacity: 0.5 }}>{COPYRIGHT}</span>
-        <Follow />
+        {/* <Follow /> */}
       </Flexbox>
     </Flexbox>
   );
