@@ -44,7 +44,7 @@ ENV NEXT_PUBLIC_ANALYTICS_UMAMI ""
 ENV NEXT_PUBLIC_UMAMI_SCRIPT_URL ""
 ENV NEXT_PUBLIC_UMAMI_WEBSITE_ID ""
 
-
+ENV NODE_OPTIONS "--max-old-space-size=16384"
 RUN pnpm run build:docker # run build standalone for docker version
 
 ## Production image, copy all the files and run next
