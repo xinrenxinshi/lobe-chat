@@ -26,6 +26,7 @@ const XrxsUserInject = ({ children }: PropsWithChildren) => {
         if (cur.test(event.origin)) {
           localStorage.setItem('XRXS_USER', JSON.stringify(event.data));
           setIsReady(true);
+          break;
         } else {
           localStorage.setItem('XRXS_USER', '');
           setIsReady(false);
