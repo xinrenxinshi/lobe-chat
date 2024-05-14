@@ -4,6 +4,7 @@ import { PropsWithChildren, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import FullscreenLoading from '@/components/FullscreenLoading';
+import { isDev } from '@/utils/env';
 
 const XrxsUserInject = ({ children }: PropsWithChildren) => {
   const { t } = useTranslation('common');
@@ -17,6 +18,11 @@ const XrxsUserInject = ({ children }: PropsWithChildren) => {
   ];
   const [isReady, setIsReady] = useState<boolean>(false);
   useEffect(() => {
+    console.log('isDev', isDev);
+    if (isDev) {
+      setIsReady(true);
+      return;
+    }
     localStorage.setItem('XRXS_USER', '');
     if (window === window.top) {
       return;
